@@ -5,10 +5,9 @@ import (
 	"time"
 )
 
-
 func main() {
 	i := 2
-	fmt.Println("Write ", "i" " as")
+	fmt.Println("Write ", i, " as")
 
 	switch i {
 	case 1:
@@ -26,7 +25,6 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -34,7 +32,6 @@ func main() {
 	default:
 		fmt.Println("It's after noon")
 	}
-
 
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
@@ -50,4 +47,3 @@ func main() {
 	whatAmI(1)
 	whatAmI("hey")
 }
-
