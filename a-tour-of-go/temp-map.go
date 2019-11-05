@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 /*
 func main() {
 	sm := make([]map[int]string, 5)
@@ -65,3 +69,71 @@ func closure(x int) func(int) int {
 	}
 }
 */
+/*
+func main() {
+	fmt.Printf("a")
+	defer fmt.Println("b \n")
+	defer fmt.Println("c")
+}
+
+*/
+/*
+func main() {
+	for i := 0; i < 3; i++ {
+		defer fmt.Println(i)
+	}
+}
+*/
+/*
+func main() {
+	for i :=0; i < 3; i++ {
+		defer func() {
+			fmt.Println(i)
+		}()
+	}
+}
+*/
+/*
+func main() {
+	A()
+	B()
+	C()
+
+}
+
+func A() {
+	fmt.Println("Func A")
+}
+
+func B() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("Recover in B")
+		}
+	}()
+	panic("Panic in B")
+}
+
+func C() {
+	fmt.Println("Func C")
+}
+
+*/
+
+func main() {
+	var min, max int
+	min, max = MinMax(78, 65)
+	fmt.Printf("Minmium is : %d, Maximum is: %d\n", min, max)
+
+}
+
+func MinMax(a int, b int) (min int, max int) {
+	if a < b {
+		min = a
+		max = b
+	} else {
+		min = b
+		max = a
+	}
+	return a, b
+}
