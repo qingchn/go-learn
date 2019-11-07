@@ -119,7 +119,7 @@ func C() {
 }
 
 */
-
+/*
 func main() {
 	var min, max int
 	min, max = MinMax(78, 65)
@@ -136,4 +136,153 @@ func MinMax(a int, b int) (min int, max int) {
 		max = a
 	}
 	return a, b
+}
+*/
+/*
+func main() {
+	x := min(1, 3, 2, 0)
+	fmt.Printf("The minimum is : %d \n", x)
+	slice := []int{7, 9, 3, 5, 1}
+	x = min(slice...)
+	fmt.Printf("The minimum in the slice is: %d", x)
+}
+
+func min(s ...int) int {
+	if len(s) == 0 {
+		return 0
+	}
+	min := s[0]
+	for _, v := range s {
+		if v < min {
+			min = v
+		}
+	}
+	return min
+}
+*/
+/*
+func main() {
+	doDBOperations()
+}
+
+func connectToDB() {
+	fmt.Println("OK, connected to db")
+}
+
+func disconnectFromDB() {
+	fmt.Println("OK, disconnected from db")
+}
+
+func doDBOperations() {
+	connectToDB()
+	fmt.Println("Defering the database disconnect.")
+	defer disconnectFromDB() //function called here with defer
+	fmt.Println("Doing some DB operations ...")
+	fmt.Println("Oops! some crash or network error ...")
+	fmt.Println("Returning from function here!")
+	return //terminate the program
+}
+*/
+
+/*
+
+func trace(s string) {
+	fmt.Println("entering:", s)
+}
+
+func untrace(s string) {
+	fmt.Println("leaving: ", s)
+}
+
+func a() {
+	trace("a")
+	defer untrace("a")
+	fmt.Println("in a")
+}
+
+func b() {
+	trace("b")
+	defer untrace("b")
+	fmt.Println("in b")
+	a()
+}
+
+func main() {
+	b()
+}
+*/
+/*
+func func1(s string) (n int, err error) {
+	defer func() {
+		log.Printf("func1(%q) = %d, %v", s, n, err)
+	}()
+	return 7, io.EOF
+}
+
+func main() {
+	func1("Go")
+}
+*/
+/*
+func main() {
+	result := 0
+	for i := 0; i <= 10; i++ {
+		result = fibonacci(i)
+		fmt.Printf("fibonacci(%d) is : %d \n", i, result)
+	}
+}
+
+func fibonacci(n int) (res int) {
+	if n <= 1 {
+		res = 1
+	} else {
+		res = fibonacci(n-1) + fibonacci(n-2)
+	}
+	return
+}
+*/
+
+/*
+func main() {
+	f()
+}
+
+func f() {
+	for i := 0; i < 4; i++ {
+		g := func(i int) { fmt.Printf("%d", i) }
+		g(i)
+		fmt.Printf("- g if of type %T and has value %v\n", g, g)
+	}
+}
+*/
+/*
+func main() {
+	p2 := Add2()
+	fmt.Printf("Call Add2 for 3 gives: %v\n", p2(3))
+	TwoAdder := Adder(2)
+	fmt.Printf("The result is: %v \n", TwoAdder(3))
+
+}
+
+func Add2() func(b int) int {
+	return func(b int) int {
+		return b + 2
+	}
+}
+
+func Adder(a int) func(b int) int {
+	return func(b int) int {
+		return a + b
+	}
+}
+*/
+
+type person struct {
+	Name string
+	Age  int
+}
+
+func main() {
+	a := person{}
+	fmt.Println(a)
 }
