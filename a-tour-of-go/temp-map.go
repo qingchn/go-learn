@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
 func main() {
 	sm := make([]map[int]string, 5)
@@ -286,7 +284,7 @@ func main() {
 }
 */
 
-
+/*
 type Shaper interface {
 	Area () float32
 }
@@ -314,4 +312,85 @@ func main() {
 	// areaIntf := sq1
 	fmt.Printf("The square has area: %f\n", areaIntf.Area())
 
+}
+*/
+/*
+import "fmt"
+
+type Shaper interface {
+	Area() float32
+}
+
+
+type Square struct {
+	side float32
+}
+
+func (sq *Square) Area() float32 {
+	return sq.side * sq.side
+}
+
+type Rectangle struct {
+	length float32
+    width  float32
+}
+
+func (r Rectangle) Area() float32 {
+	return r.length * r.width
+}
+
+
+func main() {
+	r := Rectangle{5,3}
+	q := &Square{5}
+	// shapes := []Shaper{Shaper(r), Shaper(q)}
+	// or shorter
+	shapes := []Shaper{r,q}
+	fmt.Println("Looping through shapes for area ...")
+	for n, _ := range shapes {
+		fmt.Println("Shape details: ", shapes[n])
+		fmt.Println("Area of this shape is: ", shapes[n].Area())
+	}
+
+
+
+}
+*/
+
+import "fmt"
+
+type USB interface {
+	Name() string
+	Connecter
+}
+
+type Connecter interface {
+	Connect()
+}
+
+type PhoneConnecter struct {
+	name string
+}
+
+func (pc PhoneConnecter) Name() string {
+	return pc.name
+}
+
+func (pc PhoneConnecter) Connect() {
+	fmt.Println("Connected:", pc.name)
+}
+
+func main() {
+	a := PhoneConnecter{"PhoneConnecter"}
+	a.Connect()
+	Disconnect(a)
+}
+
+func Disconnect(usb USB) {
+	if pc, ok := usb.(PhoneConnecter);ok{
+		fmt.Println("Disconected:", pc.name)
+		return
+
+	}
+	fmt.Println("Unknown decive.")
 }
